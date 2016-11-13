@@ -32,6 +32,7 @@ $(document).ready(function() {
         $('#tweet-submit').prop('disabled',true);
       }
   });
+
   $('#tweet-submit').click(function() {
       var $finishedtweet = $('.tweet:first').clone();
       $finishedtweet.find('.avatar').prop('src', "img/alagoon.jpg")
@@ -39,9 +40,6 @@ $(document).ready(function() {
       $finishedtweet.find('.username').html('@sid')
       $finishedtweet.find('.tweet-text').html($('.tweet-compose').val())
       $('#stream').prepend($finishedtweet);
-      // $('.tweet-compose').val() = '';
-      // $('.tweet-controls').hide();
-
   });
 
   $('#tweet-submit').click(function () {
@@ -64,4 +62,8 @@ $(document).ready(function() {
     $(this).find('.reply').show();
   })
 
+  $('.tweet').dblclick( function() {
+    $(this).find('.stats').hide();
+    $(this).find('.reply').hide();
+  })
 });
