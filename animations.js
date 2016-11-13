@@ -41,8 +41,15 @@ $(document).ready(function() {
       $('#stream').prepend($finishedtweet);
       // $('.tweet-compose').val() = '';
       // $('.tweet-controls').hide();
+
   });
 
+  $('#tweet-submit').click(function () {
+    $('.tweet-compose').val('');
+    $('#char-count').val(140);
+    $('#char-count').css("color","#AFAFAF");
+    $('#char-count').html('140');
+  });
 
   $('.tweet').hover(function () {
     $(this).find('.tweet-actions').show();} , function() {
@@ -52,13 +59,9 @@ $(document).ready(function() {
   $('.stats').hide();
   $('.reply').hide();
 
-  $('.tweet').click(function() {
+  $('.tweet').click( function() {
     $(this).find('.stats').show();
     $(this).find('.reply').show();
   })
 
 });
-
-
-// width: 100%;
-// height: 2.5em;
