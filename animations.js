@@ -1,6 +1,8 @@
 $(document).ready(function() {
   $('#tweet-controls').hide();
 
+  $('.tweet-actions').hide();
+
   $('.tweet-compose').on('click', function() {
     $('#tweet-controls').show();
   });
@@ -31,10 +33,29 @@ $(document).ready(function() {
       }
   });
   $('#tweet-submit').click(function() {
-      var $finishedtweet = $('<span>SIDSIDSID</span>')
+      var $finishedtweet = $('.tweet:first').clone();
+      $finishedtweet.find('.avatar').prop('src', "img/alagoon.jpg")
+      $finishedtweet.find('.fullname').html('Sid')
+      $finishedtweet.find('.username').html('@sid')
+      $finishedtweet.find('.tweet-text').html($('.tweet-compose').val())
       $('#stream').prepend($finishedtweet);
-  })
+      // $('.tweet-compose').val() = '';
+      // $('.tweet-controls').hide();
+  });
 
+
+  $('.tweet').hover(function () {
+    $(this).find('.tweet-actions').show();} , function() {
+    $(this).find('.tweet-actions').hide();
+  });
+
+  $('.stats').hide();
+  $('.reply').hide();
+
+  $('.tweet').click(function() {
+    $(this).find('.stats').show();
+    $(this).find('.reply').show();
+  })
 
 });
 
